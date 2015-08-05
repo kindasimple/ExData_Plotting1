@@ -18,7 +18,7 @@ if(!file.exists(file.zip)) {
 # Subset and convert
 #
 data$Date <- as.Date(data$Date, '%d/%m/%Y')
-df <- data[data$Date == as.Date('2007-02-01', '%Y-%m-%d'), ]
+df <- data[data$Date >= as.Date('2007-02-01', '%Y-%m-%d') & data$Date < as.Date('2007-02-03', '%Y-%m-%d'), ]
 df$Time <- strptime(df$Time, '%H:%M:%S')
 
 #

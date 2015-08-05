@@ -26,7 +26,7 @@ df$DateTime <- as.POSIXct(paste(df$Date, df$Time), '%Y-%m-%d %H:%M:%S')
 #
 png(filename = "plot4.png",
     width = 480, height = 480, units = "px", pointsize = 12)
-par(mfrow=c(2,2))
+par(mfrow=c(2,2), mar=c(4,5,2,1), oma=c(2,0,4,0), cex.lab=.8)
 with(df, {
   plot(Global_active_power ~ DateTime, ylab='Global Active Power', xlab='', type='l',  xaxt="n")
   axis.POSIXct(1, at=seq(min(DateTime), max(DateTime+60), by="day"), format="%a", cex.axis = .7)
@@ -43,7 +43,7 @@ with(df, {
   lines(Sub_metering_3 ~ DateTime, type="l", col="blue")
   axis.POSIXct(1, at=seq(min(DateTime), max(DateTime+60), by="day"), format="%a", cex.axis = .7)
 })
-legend("topright", col=c("black","red","blue"), legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), lty=c(1,1), bty="n")
+legend("topright", cex=.8, col=c("black","red","blue"), legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), lty=c(1,1), bty="n")
 
 with(df, {
   plot(Global_reactive_power ~ DateTime, xlab='datetime', type='l',  xaxt="n")
